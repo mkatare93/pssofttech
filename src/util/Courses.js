@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Image, FlatList, ScrollView, Animatable, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { Animated, Easing, SectionList, StatusBar } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 // import MarqueeView from 'react-native-marquee-view';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, widthPercentageToDP, heightPercentageToDP } from 'react-native-responsive-screen'
@@ -16,8 +17,20 @@ import {
 
 
 
+
 const { w, h } = Dimensions.get('window')
 const Courses = () => {
+  let opacity = new Animated.Value(0);
+  const animate = easing => {
+    opacity.setValue(0);
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 1200,
+      easing
+    }).start();
+  };
+
+
   // const [show,setShow]=React.useState(false)
   // const [msgindex,setMsgindex]=React.useState('')
 
@@ -103,9 +116,7 @@ const Courses = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-
-
-      <View style={{ height: hp("33.5%") }}>
+        <View style={{ height: hp("33.5%") }}>
         <Text style={styles.tag}>Where our Alumni works</Text>
         <View>
 
@@ -132,7 +143,7 @@ const Courses = () => {
             {slideContent.map((item, index) => {
               return (
 
-                <View style={styles.slideouter}>
+                <View key={item.id} style={styles.slideouter}>
                   <View style={{ padding: 5, overflow: 'hidden' }}>
                     <Image source={item.image} style={styles.slideImg} resizeMode='cover' />
                     <View style={{ position: 'absolute', marginTop: item.show ? '3%' : '61.5%', marginLeft: 5, overflow: 'hidden' }}>

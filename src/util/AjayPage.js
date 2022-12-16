@@ -1,4 +1,4 @@
-import { View, Text,StyleSheet,Image,FlatList,ScrollView } from 'react-native'
+import { View, Text,StyleSheet,Image,FlatList,ScrollView,Dimensions } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Notification from '../util/Notification'
@@ -10,6 +10,8 @@ import {
   responsiveWidth as wd,
   responsiveFontSize as fs
 } from "react-native-responsive-dimensions";
+const {width, height} = Dimensions.get('window');
+import { SwiperFlatList } from 'react-native-swiper-flatlist';
 
 
 
@@ -29,14 +31,12 @@ const dataText=[
 
 const renderProductSlide=(item)=>{
   return(
-    <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false} >
-      <View key={item.id} style={{paddingBottom:10}}>
+   <View key={item.id} style={{paddingBottom:10}}>
         <View style={styles.sliderContainer}>
       <Text style={styles.mainHeadText}>{item.heading}</Text>
       <Text style={styles.minNormalText}>{item.text}</Text>
       </View>
       </View>
-  </ScrollView>
   )
 }
 
@@ -74,17 +74,15 @@ const renderProductSlide=(item)=>{
 
 
     <View  style={{width:wp("100%"),marginLeft:wp("-1.7%"),marginTop:wp("-4.2%")}}>
-    <FlatList 
-            showsHorizontalScrollIndicator={false}
-            horizontal={true}
-            pagingEnabled={true}
-            key={'list1'}
-            data={dataText}
-            renderItem={({item, index}) => renderProductSlide(item, index)}
-            keyExtractor={(item,index) => item.id}
-           />
+    <SwiperFlatList
+      autoplay
+      autoplayDelay={2}
+      autoplayLoop
+      data={dataText}
+      renderItem={({ item,index }) => renderProductSlide(item, index)}
+      />
 
-        </View>
+    </View>
 
     
     
@@ -120,7 +118,7 @@ paddingLeft:wp("3%")
 // borderBottomLeftRadius:hp('100%'),
 },
 continerTwo:{
-  backgroundColor:'#ff0028',
+  backgroundColor:'#FF0028',
   height: hp('15%'),
   width:wp('47%'),
   borderBottomLeftRadius:41,

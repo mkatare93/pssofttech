@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import { RED3,RED2,RED,GRAY,GRAY2, WHITE,BLACK, ORANGE, LIGHT_GRAY, LIGHT_GRAY2, WHITE2 } from '../assets/colors/Colors'
 import { Rating, AirbnbRating } from 'react-native-ratings';
-// import { Divider } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PlacedPage from '../util/PlacedPage'
 import AjayPage from '../util/AjayPage'

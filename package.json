@@ -9,20 +9,31 @@
     "test": "jest",
     "lint": "eslint ."
   },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  },
   "dependencies": {
     "@homielab/react-native-auto-scroll": "^0.0.8",
     "@react-navigation/bottom-tabs": "^6.5.0",
+    "@react-navigation/material-top-tabs": "^6.5.1",
     "@react-navigation/native": "^6.1.0",
     "@react-navigation/stack": "^6.3.8",
     "react": "18.1.0",
     "react-native": "0.70.6",
+    "react-native-asset": "^2.0.1",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-link": "^4.1.0",
+    "react-native-pager-view": "^6.1.2",
     "react-native-ratings": "^8.1.0",
+    "react-native-reanimated": "^2.13.0",
     "react-native-responsive-dimensions": "^3.1.1",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.18.2",
+    "react-native-swiper-flatlist": "^3.0.18",
+    "react-native-tab-view": "^3.3.4",
     "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
